@@ -11,6 +11,7 @@ const puppeteer = require("puppeteer-core");
     await page.goto('http://192.168.0.2/main.cgi?page=app.html#cat=status-and-support_restart');
 
     await page.waitForSelector('input[id=login_Password]');
+    await page.waitForSelector('a[id="btn_login"]');
     await page.$eval('#login_Password', el => el.value = process.env.ROUTER_PASSWD);
 
     await page.click("#btn_login");
